@@ -1,0 +1,280 @@
+/* 1. IMPORT POPPINS FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Reset & Fonts */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Poppins', sans-serif; background-color: #f0f4f2; }
+
+/* 2. APP WRAPPER & BACKGROUND */
+.app-wrapper {
+  background-color: #e6f0eb; 
+  background-image: url('/images/app-bg.png'); 
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3. TOP NAVIGATION BAR */
+.navbar {
+  background: linear-gradient(90deg, #003a1c 0%, #006633 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 12px 50px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+.nav-left { display: flex; align-items: center; gap: 18px; }
+.nav-left .logo { height: 55px; width: auto; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); }
+
+/* THE EXCEPTION: Times New Roman for the Official Name */
+.nav-left h1 { 
+  font-family: 'Times New Roman', Times, serif; 
+  font-size: 24px; /* Made it slightly larger since Times New Roman runs small */
+  font-weight: bold; 
+  letter-spacing: 0.5px; 
+  color: #f9f9f9;
+  text-shadow: 1px 1px 2px #040404; 
+}
+
+/* 4. HERO BANNER SECTION */
+.hero-section {
+  background-image: url('/images/campus-hero.png');
+  background-size: cover;
+  background-position: center;
+  height: 320px; 
+  display: flex;
+  align-items: flex-end; 
+}
+.hero-overlay {
+  background: linear-gradient(to top, rgba(0, 40, 15, 0.9), rgba(0, 50, 20, 0.3));
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 30px 0 80px 0; 
+}
+
+.hero-overlay h2 { 
+  font-size: 32px; 
+  font-weight: 700; 
+  margin-bottom: 8px; 
+  color: #ffffff; /* <-- This forces the text to be bright white! */
+  text-shadow: 0 2px 4px #040404; 
+}
+
+.hero-overlay p { 
+  font-size: 18px; 
+  font-weight: 400; 
+  color: #ffffff; /* <-- Forces the subtext to be white too */
+  text-shadow: 0 1px 3px #040404; 
+}
+
+/* 5. CHAT CONTAINER */
+.main-content {
+  flex: 1; display: flex; justify-content: center; padding: 0 20px 40px 20px;
+}
+.chat-container {
+  background-color: white;
+  width: 100%;
+  max-width: 900px; 
+  height: 650px; 
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: -60px; 
+  z-index: 5;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* 6. AVATAR GREETING AREA */
+.chat-greeting-area {
+  display: flex;
+  align-items: flex-start; 
+  padding: 25px 30px;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #f9f9f9;
+}
+.ai-avatar {
+  height: 90px; 
+  width: auto;
+  margin-right: 20px;
+  margin-top: -15px; 
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+.greeting-bubble {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 16px 24px;
+  border-radius: 20px;
+  border-top-left-radius: 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  font-weight: 500;
+  font-size: 15px;
+  color: #222;
+  margin-top: 10px;
+}
+
+/* 7. QUICK QUESTIONS SECTION */
+.quick-questions-section {
+  padding: 20px 40px;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #fafcfb;
+}
+.qq-title {
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.qq-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+.qq-buttons button {
+  font-family: 'Poppins', sans-serif; /* Ensuring buttons use Poppins */
+  background: linear-gradient(to bottom, #ffffff, #f4f7f5);
+  border: 1px solid #cce0d5;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #004d26;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  transition: all 0.2s ease;
+}
+.qq-buttons button:hover {
+  background: #eaf2ed;
+  border-color: #006633;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* 8. SCROLLING CHAT HISTORY */
+.chat-window { flex: 1; padding: 25px 40px; overflow-y: auto; display: flex; flex-direction: column; gap: 18px; background: #ffffff; }
+.message-wrapper { display: flex; width: 100%; }
+.message-wrapper.user { justify-content: flex-end; }
+.message-wrapper.ai { justify-content: flex-start; }
+.message-bubble { max-width: 75%; padding: 14px 20px; border-radius: 18px; line-height: 1.6; white-space: pre-wrap; font-size: 14px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.message-bubble.user { background: linear-gradient(135deg, #006633, #004d26); color: white; border-bottom-right-radius: 4px; }
+.message-bubble.ai { background-color: #f8f9fa; color: #333; border-bottom-left-radius: 4px; border: 1px solid #eaeaea; }
+
+/* Typing animation */
+.typing-indicator { display: flex; align-items: center; gap: 6px; padding: 15px 24px; }
+.typing-indicator span { width: 8px; height: 8px; background-color: #006633; border-radius: 50%; animation: bounce 1.4s infinite ease-in-out both; opacity: 0.7; }
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0s; }
+@keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+
+/* 9. INPUT AREA */
+.input-area { 
+  display: flex; 
+  padding: 18px 40px; 
+  background-color: #f8f9fa; 
+  gap: 12px;
+  border-top: 1px solid #eaeaea;
+  align-items: center;
+}
+.input-area input { 
+  font-family: 'Poppins', sans-serif;
+  flex: 1; 
+  padding: 14px 20px; 
+  border: 1px solid #dcdcdc; 
+  border-radius: 25px; 
+  outline: none; 
+  font-size: 14px;
+  background-color: #ffffff;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+  transition: border-color 0.2s;
+}
+.input-area input:focus {
+  border-color: #006633;
+}
+.send-btn { 
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px; 
+  background-color: #006633; 
+  color: white; 
+  border: none; 
+  border-radius: 25px; 
+  cursor: pointer; 
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+.send-btn:hover:not(:disabled) {
+  background-color: #004d26;
+}
+.send-icon {
+  width: 18px;
+  height: 18px;
+}
+.send-btn:disabled { background-color: #cccccc; cursor: not-allowed; }
+
+/* 10. FOOTER */
+.chat-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: 12px;
+  color: #888;
+  background-color: #f8f9fa;
+  border-top: 1px solid #eaeaea;
+}
+.chat-footer strong {
+  color: #444;
+}
+/* 11. MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+  /* Stack the header and shrink the text */
+  .navbar { 
+    padding: 15px 20px; 
+    justify-content: center;
+  }
+  .nav-left .logo { height: 40px; }
+  .nav-left h1 { font-size: 16px; text-align: center; }
+
+  /* Adjust the hero banner */
+  .hero-section { height: 260px; }
+  .hero-overlay { padding: 20px 0 60px 0; }
+  .hero-overlay h2 { font-size: 24px; padding: 0 10px; }
+  .hero-overlay p { font-size: 15px; }
+
+  /* Fit the chat container to the screen */
+  .main-content { padding: 0 15px 30px 15px; }
+  .chat-container { 
+    height: 600px; 
+    margin-top: -40px; 
+    border-radius: 12px;
+  }
+
+  /* Adjust the greeting and quick questions */
+  .chat-greeting-area { padding: 15px 20px; }
+  .ai-avatar { height: 65px; margin-top: -5px; margin-right: 15px; }
+  .greeting-bubble { font-size: 14px; padding: 12px 16px; }
+  
+  .quick-questions-section { padding: 15px 20px; }
+  .qq-buttons button { font-size: 13px; padding: 10px 15px; width: 100%; text-align: left; }
+
+  /* Adjust chat bubbles and input */
+  .chat-window { padding: 15px 20px; }
+  .message-bubble { font-size: 14px; padding: 12px 16px; max-width: 85%; }
+  
+  .input-area { padding: 12px 15px; gap: 8px; }
+  .input-area input { font-size: 14px; padding: 12px 15px; }
+  .send-btn { padding: 10px 16px; font-size: 14px; }
+  .send-icon { width: 16px; height: 16px; }
+}
